@@ -1,0 +1,411 @@
+/**  stART cUSTOM MAin Style */
+
+    .nice-msg
+  {
+      width: 100%;
+      color: #000;
+      background-color: rgba(208, 193, 193, 0.61);
+      padding: 20px;
+      border-left: 16px solid #26a69a;
+      border-top-left-radius: 40px;
+      border-top-right-radius: -64;
+      border-right: 10px silver;
+      padding-right: 25px;
+  }
+.showMyPass{
+    cursor: pointer;
+    color: #000099;
+}
+/**  stART cUSTOM MAin Style */
+
+
+/****************************  Index [ admin ] *************************************/
+.home-stat .stat{
+
+    background-color: #69D2E7 ;
+    padding: 25px ;
+    font-size: 18px ;
+    color: #FFF;
+    border-radius: 10px ;
+    position: relative;
+    overflow: hidden
+
+}
+
+.home-stat .stat i {
+    font-size: 80px;
+    top: 37px;
+    position: absolute;
+    left: 19px;
+}
+
+.home-stat .stat .info{
+    float: right
+}
+
+.home-stat .stat a,
+.home-stat .stat a:hover {
+    color: #FFF ;
+    text-decoration: none
+}
+
+.home-stat .stat span{
+
+    display: block ;
+    font-size: 65px
+}
+
+.home-stat .stat-members{
+    background-color: #6C7A89
+
+}
+.home-stat .stat-pind{
+    background-color: #95A5A6
+}
+.home-stat .stat-items{
+    background-color: #6C7A89
+}
+
+.home-stat .stat-comment{
+    background-color: #6C7A89
+}
+
+.home-stat .row > div{
+    margin-bottom: 20px;
+}
+/****************************  Index [ admin ] *************************************/
+
+
+/**************************** user page  ******************************************/
+
+  
+
+/***
+
+/**************************** eND user page  ******************************************/
+
+
+/* Service Page */
+  .custom-img{
+    width:150px;
+    height:150px;
+  }
+/* Service Page */
+
+
+/* Start Messages [ plugin & my Style ]  */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #edeff2;
+  font-family: "Calibri", "Roboto", sans-serif;
+}
+
+.msgs-wrap{ height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 122%;
+    margin-right: -50px;
+    zoom: -3;
+}
+.messages {
+  position: relative;
+  list-style: none;
+  padding: 20px 10px 0 10px;
+  margin: 0;
+  height: 347px;
+ /* overflow: scroll; */
+}
+.messages .message {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: all 0.5s linear;
+  opacity: 0;
+}
+.messages .message.left .avatar {
+  background-color: #f5886e;
+  float: left;
+}
+.messages .message.left .text_wrapper {
+  background-color: #ffe6cb;
+  margin-left: 20px;
+  height :55px
+}
+.messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
+  right: 100%;
+  border-right-color: #ffe6cb;
+}
+.messages .message.left .text {
+  color: #c48843;
+}
+.messages .message.right .avatar {
+  background-color: #fdbf68;
+  float: right;
+}
+.messages .message.right .text_wrapper {
+  background-color: #c7eafc;
+  margin-right: 20px;
+  float: right;
+  height:55px ;
+}
+.messages .message.right .text_wrapper::after, .messages .message.right .text_wrapper::before {
+  left: 100%;
+  border-left-color: #c7eafc;
+}
+.messages .message.right .text {
+  color: #45829b;
+}
+.messages .message.appeared {
+  opacity: 1;
+  
+}
+.messages .message .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.messages .message .text_wrapper {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 6px;
+  width: calc(100% - 85px);
+  min-width: 100px;
+  position: relative;
+}
+.messages .message .text_wrapper::after, .messages .message .text_wrapper:before {
+  top: 18px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.messages .message .text_wrapper::after {
+  border-width: 13px;
+  margin-top: 0px;
+}
+.messages .message .text_wrapper::before {
+  border-width: 15px;
+  margin-top: -2px;
+}
+.messages .message .text_wrapper .text {
+  font-size: 18px;
+  font-weight: 300;
+}
+.msg-left{
+  float: left 
+}
+/*  Me Style  */
+.messages .msgs-wrap{
+  
+  min-height:250px;
+  max-height:500px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.messages .new-msg {
+  
+  padding-top:10px;
+  min-height:50px;
+}
+.messages .new-msg #message {
+  height: 34px;
+  width: 830px;
+  top: 0px;
+}
+
+#send {
+  margin-top: 7px 
+}
+
+/*  Me Style  */
+
+/* Start User Search Style */
+
+
+.stylish-input-group form.input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+  border-right:1; 
+  /*box-shadow:0 0 0; 
+  border-color:#ccc; */
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/**********************/
+
+/* End User Search Style */
+
+/* Start Ads Style*/ 
+.ads-styles{
+    // min-height: 50px 
+}
+#ads_link,#ads_code,#ads_file
+{
+    display: none ;
+}
+.selectDiv > select {
+     margin :7px 0 100px 0;
+     
+}
+/*.ads-styles .selectDiv
+{    
+     margin-bottom: 35px;
+}
+.ads-styles .selectDiv > select 
+{
+     margin-top: 7px ;
+}
+
+.ads-styles .div_url{
+    display: block ; 
+    margin-bottom: 35px;
+     
+}
+.ads-styles .div_url input {
+     margin-top: 7px ;
+}
+ Start Ads Style */
+/* Consulting  */
+.main-table tr:first-child td {
+     background-color: #26A69A ;
+     color: #FFF ;
+}
+h1{
+     font-size: 55px ;
+     margin: 40px 0px ;
+     font-weight: bold;
+     color: #666 ;
+          
+}
+/* Consulting  */
+
+
+
+/* End Messages Style [ plugin & my Style ]*/
+
+
+
+
+
+.form-wrap{
+    background-color: rgba(249, 249, 249, 1);
+    padding: 20px;
+}
+.form-ttl{
+    font-size: 24px;
+    color: #222;
+    margin: 0 0 25px;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+    padding-bottom: 15px;
+}
+.form-wrap label{
+    font-weight: normal;
+    font-size: 13px;
+    color: #222;
+}
+.form-wrap a{
+    display: inline-block;
+    margin-top: 10px;
+    color: #767F88;
+    text-decoration: none;
+    font-size: 13px;
+}
+.form-wrap a:hover{
+    color: #f6c606;
+}
+.form-wrap .form-control{
+    background-color: #fff;
+    border-color: rgba(235, 235, 235, 1);
+    color: #898989;
+    box-shadow: none;
+    height: 40px;
+    border-radius: 0;
+}
+.form-wrap textarea.form-control{
+    height: 200px;
+    max-width: 100%;
+}
+.form-wrap .form-control:focus{
+    border-color: #ccc;
+}
+.form-wrap button[type="submit"]{
+    background: #f6c606;
+    color: #393939;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 30px;
+}
+
+.text-wrap{
+    background-color: rgba(249, 249, 249, 1);
+    padding: 25px;
+    color: #777;
+    font-size: 14px;
+    line-height: 28px;
+    border: 1px solid #f0f0f0;
+}
+.replay_details
+{
+    border-left: 2px solid #ccc;
+    padding : 40px;
+    min-height: 135px;
+}
+
+.replay_text
+{
+    padding : 10px;
+}
+.client_replay {
+    background-color: #ffe7f5;
+}
+.attachments{
+    bottom: -88px;
+    position: absolute;
+    right: 5px;
+    list-style-type: none;
+    width: 40%;
+}
+ 
+.tab-content{
+    background: #fff;
+    margin-top: -28px;
+    margin-bottom: 10px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+
+.breadcrumb {
+    background-color: white;
+    padding: 7px 11px 11px 3px;
+    margin-bottom: 19px;
+    color: #e35b5a;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+/*
+.breadcrumb a[title]:hover:after {
+    content: attr(title);
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 170px;
+    right: 5px;
+    white-space: nowrap;
+    z-index: 9999;
+    background:#000;
+    color: #fff;
+}*/
+
+

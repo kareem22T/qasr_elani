@@ -1,0 +1,13 @@
+alert('Title', 'Message')
+
+
+alert()->error('Title', 'Message')
+
+
+alert()->success('Title', 'Message')
+
+
+alert()->overlay('Title', 'Message')
+
+
+https://github.com/Infinety/alerts

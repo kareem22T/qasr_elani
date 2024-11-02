@@ -1,0 +1,57 @@
+#notify {
+    width: 365px;
+    margin: 15px auto;
+    font-family: 'Open Sans',helvetica,arial,sans-serif;
+}
+#login-status.error-notice>.content-wrapper, #login-status.answers-notice>.content-wrapper, #login-status.warn-notice>.content-wrapper, #login-status.info-notice>.content-wrapper, #login-status.success-notice>.content-wrapper {
+    padding: 5px 10px 5px 5px;
+}
+
+#login-status.error-notice, #login-status.answers-notice, #login-status.warn-notice, #login-status.info-notice, #login-status.success-notice {
+    padding: 0;
+}
+#login-status {
+    display: table;
+    width: 100%;
+}
+#login-detail, .message-detail {
+    display: table-row;
+    height: 40px;
+}
+.error-notice{
+    background-color: #d35351;
+    color: #fff;
+}
+.success{
+    background-color: #67ba5b;
+    color: #fff;
+}
+.info{
+    background-color: #009cde;
+    color: #fff;
+}
+
+.error-notice, .answers-notice, .warn-notice, .info-notice, .success-notice, #failure {
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 13px;
+    min-height: 27px;
+    padding: 5px 10px 5px 5px;
+}
+#login-status-icon-container, #login-status-message, .login-status-message {
+    display: table-cell;
+    vertical-align: middle;
+}
+#login-status-icon-container {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 27px;
+}
+
+#login-status-icon-container i{
+    margin-top: 7px;
+    font-size: 30px;
+}
+#login-status-message, .login-status-message {
+    padding: 5px;
+}

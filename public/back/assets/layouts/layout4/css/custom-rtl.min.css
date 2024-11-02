@@ -1,0 +1,239 @@
+/* Start Section General Styles */
+/*@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');*/
+
+@import url('droidarabickufi.css');
+
+/*body,.form-title, .dropdown-menu-default li a ,.dropdown-user ,.filterResult h1,h2,.no-rate,
+div.open ul.dropdown-menu li a,.profile-info h1,profile-info ul li.label,h1,h4,portlet-body*/
+* {
+    font-family: 'Droid Arabic Kufi', sans-serif !important;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    /* margin: 2px 10px 0; */
+    margin: 20px 0px 0px 0px !important;
+}
+
+.read {
+    background: #eee !important;
+}
+
+.unread{
+
+    background: #fff !important;google
+}
+
+.fa {
+    position: relative;
+}
+
+/*replace the content value with the
+corresponding value from the list below*/
+
+i.fa:before {
+    font-family: FontAwesome;
+}
+
+.dropdown-menu {
+    min-width: 175px;
+    /* position: absolute; */
+    /* top: 100%; */
+    right: -19px;
+    z-index: 1000;
+    display: none;
+    float: right;
+    list-style: none;
+    text-shadow: none;
+    padding: 0px;
+    background-color: #ffffff;
+    margin: 10px 0px 0px 0px;
+    box-shadow: 5px 5px rgba(102, 102, 102, 0.1);
+    border: 1px solid #eee;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    z-index: 9999;
+    margin: 20px;
+}
+
+/*
+
+.page-sidebar .page-sidebar-menu > li > a > .title {
+    color: #337ab7;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+*/
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 3px 0px 0px 0px;
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    direction: rtl;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+.imgProfile img {
+    zoom: 150%;
+    margin: 20px;
+    padding-right: 35px;
+    zoom: 150%;
+}
+
+.imgProfile p {
+    margin: 10px;
+    color: #337ab7;
+    font-size: 12px;
+    padding: 5px;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+#contextMenu{
+    background-color: #ffffff;
+    right: 34px;
+    display: block;
+    position: absolute;
+    left: 113px;
+    top: 45px;
+}
+
+
+/* End Section General Styles */
+
+
+/* admins form style */
+#pre table td {
+    width: 80%;
+}
+
+.ImgProfileStyle{
+    margin-right: 15px;
+    float: right;
+}
+
+.showPreDiv{
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+/* admins form style */
+
+
+/* Ticktes Page  */
+
+
+.form-wrap{
+    background-color: #eee;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+.form-ttl{
+    /*font-size: 24px;*/
+    color: #222;
+    margin: 0 0 25px;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+    padding-bottom: 15px;
+}
+.form-wrap label{
+    font-weight: normal;
+    font-size: 13px;
+    color: #222;
+}
+.form-wrap a{
+    display: inline-block;
+    margin-top: 10px;
+    color: #767F88;
+    text-decoration: none;
+    font-size: 13px;
+}
+.form-wrap a:hover{
+    color: #f6c606;
+}
+.form-wrap .form-control{
+    background-color: #fff;
+    border-color: rgba(235, 235, 235, 1);
+    color: #898989;
+    box-shadow: none;
+    height: 40px;
+    border-radius: 0;
+}
+.form-wrap textarea.form-control{
+    height: 200px;
+    max-width: 100%;
+}
+.form-wrap .form-control:focus{
+    border-color: #ddd;
+}
+.form-wrap button[type="submit"]{
+    background: #333;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 30px;
+}
+
+.text-wrap{
+    background-color: rgba(249, 249, 249, 1);
+    padding: 25px;
+    color: #777;
+    font-size: 14px;
+    line-height: 28px;
+    border: 1px solid #f0f0f0;
+}
+.replay_details
+{
+    border-left: 2px solid #ccc;
+    padding : 40px;
+    min-height: 135px;
+}
+
+.replay_text
+{
+    padding : 10px;
+}
+.client_replay {
+    background-color: #ffe7f5;
+}
+.attachments{
+    bottom: -82px;
+    position: absolute;
+    left: 5px;
+    list-style-type: none;
+    width: 25%;
+    float:  left;
+}
+
+.dashboard-stat .visual > i {
+    /* color: #FFFFFF; */
+    /* opacity: 0.1; */
+    color: #FFFFFF;
+    opacity: 1;
+    font-size: 58px;
+    margin-right: auto;
+    top: -22px;
+    filter: alpha(opacity=10);
+    letter-spacing: 1px;
+}
+
+.dashboard-stat .details .desc {
+    text-align: right;
+    font-size: 16px;
+    letter-spacing: 0px;
+    font-weight: 300;
+}
