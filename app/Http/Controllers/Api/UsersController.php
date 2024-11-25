@@ -39,7 +39,7 @@ class UsersController extends ApiHelpersController
             // $activationCode = mt_rand(1000, 9999);
             // $request->merge(['activation_code' => $activationCode]);
             // $request->merge(['marketer_id'     => isset($request->referral_code) ? Marketer::firstWhere('referral_code', $request->referral_code)->id : Marketer::firstWhere('is_default', 1)->id]);
-            // $user = User::create($request->all());
+            $user = User::create($request->all());
             // if ($request->has('image')){
             //     $user->addMediaFromRequest('image')->toMediaCollection('images');
             // }
