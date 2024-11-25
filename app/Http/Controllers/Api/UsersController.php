@@ -110,15 +110,15 @@ class UsersController extends ApiHelpersController
 
         $data = array_merge($this->returnUserData($user), ['token' => $user->createToken('userLogin')->plainTextToken]);
 
-        if ($user->activation_code == 1) {
+        // if ($user->activation_code == 1) {
             $user->update(['firebase_token' => $request->firebase_token, 'device_type' => $request->device_type]);
             return response()->api(true, 'successLogin', [], $data);
-        } else {
-            $activationCode = mt_rand(1000, 9999);
-            $user->update(['activation_code' => $activationCode]);
-            Mail::to($user->email)->send(new Activation($activationCode));
-            return response()->api(true, 'userWaitingActivation', [], $data);
-        }
+        // } else {
+        //     $activationCode = mt_rand(1000, 9999);
+        //     $user->update(['activation_code' => $activationCode]);
+        //     Mail::to($user->email)->send(new Activation($activationCode));
+        //     return response()->api(true, 'userWaitingActivation', [], $data);
+        // }
     }
 
     public function requestPasswordReset(Request $request)
