@@ -36,14 +36,14 @@ class UsersController extends ApiHelpersController
         }
         DB::beginTransaction();
         try {
-            $activationCode = mt_rand(1000, 9999);
-            $request->merge(['activation_code' => $activationCode]);
-            $request->merge(['marketer_id'     => isset($request->referral_code) ? Marketer::firstWhere('referral_code', $request->referral_code)->id : Marketer::firstWhere('is_default', 1)->id]);
-            $user = User::create($request->all());
-            if ($request->has('image')){
-                $user->addMediaFromRequest('image')->toMediaCollection('images');
-            }
-            Mail::to($user->email)->send(new Activation($activationCode));
+            // $activationCode = mt_rand(1000, 9999);
+            // $request->merge(['activation_code' => $activationCode]);
+            // $request->merge(['marketer_id'     => isset($request->referral_code) ? Marketer::firstWhere('referral_code', $request->referral_code)->id : Marketer::firstWhere('is_default', 1)->id]);
+            // $user = User::create($request->all());
+            // if ($request->has('image')){
+            //     $user->addMediaFromRequest('image')->toMediaCollection('images');
+            // }
+            // Mail::to($user->email)->send(new Activation($activationCode));
             //_fireSMS($user->phone,Lang::get('emails.codeNum',['code' =>$activationCode]));
             DB::commit();
             return response()->api(true, 'successRegister', [], ['token' => $user->createToken('userAuth')->plainTextToken]);
