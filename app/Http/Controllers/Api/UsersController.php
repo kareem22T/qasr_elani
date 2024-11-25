@@ -92,27 +92,31 @@ class UsersController extends ApiHelpersController
         $rules = [
             'email_or_phone' => ['required'],
             'password'       => ['required', 'min:8'],
-            'firebase_token' => ['nullable','string'],
+            'firebase_token' => ['nullable', 'string'],
             'device_type'    => ['nullable', 'integer', 'between:0,1'],
         ];
+
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return response()->api(false, 'someErrorsHappened', $validator->errors()->all());
         }
-        $col = (filter_var($request->email_or_phone, FILTER_VALIDATE_EMAIL)) ? 'email' : 'phone';
+
+        $col = filter_var($request->email_or_phone, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
         $user = User::where($col, $request->email_or_phone)->first();
+
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->api(false, 'someErrorsHappened', 'wrongCredential');
         }
+
         $data = array_merge($this->returnUserData($user), ['token' => $user->createToken('userLogin')->plainTextToken]);
+
         if ($user->activation_code == 1) {
             $user->update(['firebase_token' => $request->firebase_token, 'device_type' => $request->device_type]);
-            return response()->api(true, 'successLogin',[], $data);
+            return response()->api(true, 'successLogin', [], $data);
         } else {
             $activationCode = mt_rand(1000, 9999);
             $user->update(['activation_code' => $activationCode]);
             Mail::to($user->email)->send(new Activation($activationCode));
-            //_fireSMS($user->phone,Lang::get('emails.codeNum',['code' => $activationCode]));
             return response()->api(true, 'userWaitingActivation', [], $data);
         }
     }
