@@ -90,7 +90,7 @@ class UsersController extends ApiHelpersController
     public function login(Request $request)
     {
         $rules = [
-            'email_or_phone' => ['required', 'email'],
+            'email_or_phone' => ['required'],
             'password'       => ['required', 'min:8'],
             'firebase_token' => ['nullable','string'],
             'device_type'    => ['nullable', 'integer', 'between:0,1'],
@@ -99,8 +99,8 @@ class UsersController extends ApiHelpersController
         if ($validator->fails()) {
             return response()->api(false, 'someErrorsHappened', $validator->errors()->all());
         }
-        //$col = (filter_var($request->email_or_phone, FILTER_VALIDATE_EMAIL)) ? 'email' : 'phone';
-        $user = User::where('email', $request->email_or_phone)->first();
+        $col = (filter_var($request->email_or_phone, FILTER_VALIDATE_EMAIL)) ? 'email' : 'phone';
+        $user = User::where($col, $request->email_or_phone)->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->api(false, 'someErrorsHappened', 'wrongCredential');
         }
