@@ -9,6 +9,7 @@ use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Traits\SendEmailTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
@@ -19,6 +20,8 @@ use Lang;
 
 class UsersController extends ApiHelpersController
 {
+    use SendEmailTrait;
+
     public function register(Request $request)
     {
         $rules = [
@@ -44,9 +47,11 @@ class UsersController extends ApiHelpersController
             //     $user->addMediaFromRequest('image')->toMediaCollection('images');
             // }
             // Mail::to($user->email)->send(new Activation($activationCode));
+            $data = array_merge($this->returnUserData($user), ['token' => $user->createToken('userLogin')->plainTextToken]);
+            $this->sendEmail($user->email, 'تفضل رمز التفعيل', $activationCode);
             //_fireSMS($user->phone,Lang::get('emails.codeNum',['code' =>$activationCode]));
             DB::commit();
-            return response()->api(true, 'successRegister', [], ['token' => $user->createToken('userAuth')->plainTextToken]);
+            return response()->api(true, 'userWaitingActivation', [], $data);
         } catch (\Exception $ex) {
             DB::rollback();
             return response()->api(false, 'someErrorsHappened', $ex->getMessage());
@@ -57,8 +62,6 @@ class UsersController extends ApiHelpersController
     {
         $rules = [
             'code'           => ['required', 'numeric', 'digits:4', 'exists:users,activation_code'],
-            'device_type'    => ['nullable', 'integer', 'between:0,1'],
-            'firebase_token' => ['nullable','string'],
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -68,7 +71,7 @@ class UsersController extends ApiHelpersController
         if ($user->activation_code != $request->code) {
             return response()->api(false, 'someErrorsHappened', 'activeCodeNotToUser');
         }
-        $user->update(['activation_code' => 1, 'firebase_token' => $request->firebase_token, 'device_type' => $request->device_type]);
+        $user->update(['activation_code' => 1, 'firebase_token' => $request->firebase_token]);
         $data = array_merge($this->returnUserData($user), ['token' => $user->createToken('userLogin')->plainTextToken]);
         return response()->api(true, 'successLogin', [], $data);
     }
@@ -81,7 +84,7 @@ class UsersController extends ApiHelpersController
         } else {
             $activationCode = mt_rand(1000, 9999);
             $user->update(['activation_code' => $activationCode]);
-            Mail::to($user->email)->send(new Activation($activationCode));
+            $this->sendEmail($user->email, 'تفضل رمز التفعيل', $activationCode);
             //_fireSMS($user->phone,Lang::get('emails.codeNum',['code' => $activationCode]));
             return response()->api(true, 'resendCodeSent');
         }
@@ -110,15 +113,15 @@ class UsersController extends ApiHelpersController
 
         $data = array_merge($this->returnUserData($user), ['token' => $user->createToken('userLogin')->plainTextToken]);
 
-        // if ($user->activation_code == 1) {
+        if ($user->activation_code == 1) {
             // $user->update(['firebase_token' => $request->firebase_token, 'device_type' => $request->device_type]);
             return response()->api(true, 'successLogin', [], $data);
-        // } else {
-        //     $activationCode = mt_rand(1000, 9999);
-        //     $user->update(['activation_code' => $activationCode]);
-        //     Mail::to($user->email)->send(new Activation($activationCode));
-        //     return response()->api(true, 'userWaitingActivation', [], $data);
-        // }
+        } else {
+            $activationCode = mt_rand(1000, 9999);
+            $user->update(['activation_code' => $activationCode]);
+            $this->sendEmail($user->email, 'تفضل رمز التفعيل', $activationCode);
+            return response()->api(true, 'userWaitingActivation', [], $data);
+        }
     }
 
     public function requestPasswordReset(Request $request)
