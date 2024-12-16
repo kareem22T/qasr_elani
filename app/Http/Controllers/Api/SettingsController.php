@@ -36,7 +36,7 @@ class SettingsController extends ApiHelpersController
         $rules = [
             'name'    => ['required'],
             'email'   => ['nullable', 'email'],
-            'phone'   => ['required','regex:/(^(0)(7)[0-9]{8}$)/u'],
+            'phone'   => ['required'],
             'message' => ['required'],
         ];
         $validator = Validator::make($request->all(), $rules);
